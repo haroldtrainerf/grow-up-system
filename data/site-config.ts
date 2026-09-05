@@ -122,7 +122,7 @@ export const inPersonPlans: Plan[] = [
     ],
     description:
       "Pensado para personas que buscan un acompañamiento completamente personalizado, con atención individual durante sus sesiones y un proceso adaptado a sus objetivos, nivel y necesidades.",
-    paypalHostedButtonId: "78CUEV6QN949",
+    paypalHostedButtonId: "78CUEV6QN9496",
   },
   {
     id: "grow-up-duo",
