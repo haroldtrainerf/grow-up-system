@@ -283,7 +283,6 @@ export type Certification = {
 export const education = {
   heading: "FORMACIÓN Y CERTIFICACIONES",
   mainProgram: "Técnico de Nivel Superior en Entrenamiento Personal",
-  mainProgramDuration: "2,5 años de estudios técnicos",
   certifications: [
     "Fitness Personal Training",
     "Pro Functional Training System",
