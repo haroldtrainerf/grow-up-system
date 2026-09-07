@@ -99,6 +99,8 @@ export type Plan = {
   features: string[];
   description: string;
   paypalHostedButtonId: string;
+  badge?: string; // ej. "RECOMENDADO" — muestra una etiqueta destacada
+  highlight?: boolean; // true = tarjeta con tratamiento visual destacado
 };
 
 export const inPersonSection = {
@@ -161,23 +163,25 @@ export const onlinePlans: Plan[] = [
       "Soporte por WhatsApp",
     ],
     description:
-      "Pensado para personas que ya tienen conocimientos básicos de entrenamiento y pueden desenvolverse por sí mismas, pero necesitan una planificación estructurada, seguimiento y alguien que las guíe durante el proceso.",
+      "Pensado para personas que ya cuentan con conocimientos básicos de entrenamiento y pueden desenvolverse por sí mismas, pero necesitan una planificación estructurada, seguimiento y orientación para avanzar.",
     paypalHostedButtonId: "AQ9PJV52LHE6S",
   },
   {
     id: "grow-premium",
     name: "GROW PREMIUM",
     priceCLP: 149900,
+    badge: "MÁS ELEGIDO",
+    highlight: true,
     features: [
       "Rutina personalizada",
       "Videos de cada ejercicio",
-      "8 clases al mes por videollamada",
-      "Seguimiento mensual",
+      "Seguimiento periódico",
       "Soporte por WhatsApp",
+      "Videollamadas de seguimiento cuando sean necesarias",
       "Plan de alimentación personalizado",
     ],
     description:
-      "Pensado para personas que quieren empezar en serio, necesitan aprender a entrenar correctamente y se benefician de tener un acompañamiento más cercano durante sus sesiones.",
+      "Pensado para personas que quieren tomarse en serio su proceso, aprender a entrenar correctamente y contar con un acompañamiento más cercano durante su evolución. La opción más completa para avanzar con acompañamiento sin depender permanentemente de un entrenador.",
     paypalHostedButtonId: "6TZTYJXJUR2QJ",
   },
   {
@@ -187,13 +191,14 @@ export const onlinePlans: Plan[] = [
     features: [
       "Rutina personalizada",
       "Videos de cada ejercicio",
-      "12 clases al mes por videollamada",
       "Seguimiento semanal",
       "Soporte por WhatsApp",
+      "Videollamadas según necesidad y nivel de supervisión requerido",
       "Plan de alimentación personalizado",
+      "Acompañamiento prioritario",
     ],
     description:
-      "Pensado para personas que buscan un acompañamiento cercano y constante, necesitan mayor supervisión y quieren seguir un proceso estructurado para avanzar hacia sus objetivos sin tener que hacerlo por su cuenta.",
+      "Pensado para personas que buscan un acompañamiento mucho más cercano, necesitan mayor supervisión durante su proceso o requieren más apoyo para avanzar con seguridad y constancia.",
     paypalHostedButtonId: "EU7ZUTDS5VJFS",
   },
 ];
@@ -221,11 +226,12 @@ export const onlineComparison = {
   rows: [
     { label: "Rutina personalizada", values: [true, true, true] },
     { label: "Videos de ejercicios", values: [true, true, true] },
-    { label: "Clases por videollamada", values: ["—", "8/mes", "12/mes"] },
+    { label: "Videollamadas de seguimiento", values: ["—", "Según necesidad", "Según necesidad"] },
     { label: "Seguimiento mensual", values: [true, true, true] },
     { label: "Seguimiento semanal", values: [false, false, true] },
     { label: "Soporte por WhatsApp", values: [true, true, true] },
     { label: "Plan de alimentación personalizado", values: [false, true, true] },
+    { label: "Acompañamiento prioritario", values: [false, false, true] },
   ],
 };
 
@@ -288,7 +294,6 @@ export const education = {
     "Pro Functional Training System",
     "PRO HIIT",
     "Levantamiento Olímpico",
-    "Reanimación Cardiopulmonar (RCP)",
   ] as string[],
 };
 
