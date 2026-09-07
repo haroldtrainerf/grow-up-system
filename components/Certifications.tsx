@@ -13,7 +13,6 @@ export default function Certifications() {
               Formación principal
             </p>
             <h3 className="font-display text-2xl leading-tight mb-2">{education.mainProgram}</h3>
-            <p className="text-ink/60 text-sm">{education.mainProgramDuration}</p>
           </div>
 
           <div>
