@@ -43,21 +43,6 @@ export default function About() {
               LEER MI HISTORIA COMPLETA
             </button>
           )}
-
-          <div className="mt-10 border-t border-ink/10 pt-8">
-            <p className="font-display text-xl mb-3">{about.profileLine}</p>
-            <p className="text-ink/70 leading-relaxed max-w-prose mb-5">{about.objective}</p>
-            <div className="flex flex-wrap gap-2">
-              {about.focusAreas.map((area) => (
-                <span
-                  key={area}
-                  className="text-xs uppercase tracking-wide border border-ink/20 px-3 py-1.5"
-                >
-                  {area}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </Reveal>
     </section>
