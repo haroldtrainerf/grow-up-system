@@ -3,6 +3,7 @@ import PlanCard from "@/components/PlanCard";
 import ComparisonToggle from "@/components/ComparisonToggle";
 import Reveal from "@/components/Reveal";
 import RevealZoom from "@/components/RevealZoom";
+import PlanCarousel from "@/components/PlanCarousel";
 
 export default function OnlineTraining() {
   return (
@@ -14,12 +15,20 @@ export default function OnlineTraining() {
         <h2 className="font-display text-3xl md:text-5xl uppercase">{onlineSection.heading}</h2>
         <p className="mt-4 text-ink/70 max-w-xl">{onlineSection.description}</p>
 
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
-          {onlinePlans.map((plan, i) => (
-            <RevealZoom key={plan.id} delay={i * 100}>
-              <PlanCard plan={plan} />
-            </RevealZoom>
-          ))}
+        <div className="mt-12">
+          <PlanCarousel>
+            {onlinePlans.map((plan) => (
+              <PlanCard key={plan.id} plan={plan} />
+            ))}
+          </PlanCarousel>
+
+          <div className="hidden md:grid md:grid-cols-3 gap-6">
+            {onlinePlans.map((plan, i) => (
+              <RevealZoom key={plan.id} delay={i * 100}>
+                <PlanCard plan={plan} />
+              </RevealZoom>
+            ))}
+          </div>
         </div>
 
         <ComparisonToggle columns={onlineComparison.columns} rows={onlineComparison.rows} />
