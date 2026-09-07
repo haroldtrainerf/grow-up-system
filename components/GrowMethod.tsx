@@ -36,7 +36,7 @@ export default function GrowMethod() {
           ))}
         </div>
 
-        <div className="mt-10 flex items-center gap-3 text-2xl md:text-3xl">
+        <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 text-lg sm:text-2xl md:text-3xl">
           <span className="font-display">GENERAR</span>
           <span className="text-grow-light">→</span>
           <span className="font-display">REFORZAR</span>
@@ -59,4 +59,3 @@ export default function GrowMethod() {
     </section>
   );
 }
-
