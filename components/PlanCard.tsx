@@ -9,27 +9,58 @@ function formatCLP(value: number) {
 }
 
 export default function PlanCard({ plan }: { plan: Plan }) {
+  const highlighted = Boolean(plan.highlight);
+
   return (
-    <div className="border border-ink/15 bg-white p-8 flex flex-col h-full">
-      <h3 className="font-display text-2xl tracking-wide">{plan.name}</h3>
+    <div
+      className={`relative flex flex-col h-full p-8 ${
+        highlighted
+          ? "bg-ink text-white border-2 border-grow shadow-xl md:-mt-4 md:mb-4"
+          : "bg-white text-ink border border-ink/15"
+      }`}
+    >
+      {plan.badge && (
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap bg-grow text-white text-xs font-bold tracking-widest uppercase px-4 py-1.5">
+          ⭐ {plan.badge}
+        </span>
+      )}
+
+      <h3 className="font-display text-2xl tracking-wide mt-2">{plan.name}</h3>
       <p className="mt-2 text-3xl font-display">
         {formatCLP(plan.priceCLP)}
-        <span className="text-base font-body font-normal text-muted"> / mes</span>
+        <span
+          className={`text-base font-body font-normal ${highlighted ? "text-white/60" : "text-muted"}`}
+        >
+          {" "}
+          / mes
+        </span>
       </p>
       {plan.priceNote && (
-        <p className="text-xs text-muted uppercase tracking-wide mt-1">{plan.priceNote}</p>
+        <p
+          className={`text-xs uppercase tracking-wide mt-1 ${
+            highlighted ? "text-white/60" : "text-muted"
+          }`}
+        >
+          {plan.priceNote}
+        </p>
       )}
 
       <ul className="mt-6 space-y-2.5 flex-1">
         {plan.features.map((f) => (
           <li key={f} className="text-sm flex gap-2">
-            <span className="text-grow font-bold">✓</span>
+            <span className={highlighted ? "text-grow-light font-bold" : "text-grow font-bold"}>
+              ✓
+            </span>
             {f}
           </li>
         ))}
       </ul>
 
-      <p className="mt-6 text-sm text-ink/70 leading-relaxed">{plan.description}</p>
+      <p
+        className={`mt-6 text-sm leading-relaxed ${highlighted ? "text-white/75" : "text-ink/70"}`}
+      >
+        {plan.description}
+      </p>
 
       <form
         action="https://www.paypal.com/cgi-bin/webscr"
@@ -47,7 +78,9 @@ export default function PlanCard({ plan }: { plan: Plan }) {
           {buyButtonLabel}
         </button>
       </form>
-      <p className="mt-3 text-[11px] text-muted leading-snug">{paypalNote}</p>
+      <p className={`mt-3 text-[11px] leading-snug ${highlighted ? "text-white/50" : "text-muted"}`}>
+        {paypalNote}
+      </p>
     </div>
   );
 }
